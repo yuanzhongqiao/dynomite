@@ -1,98 +1,130 @@
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/Netflix/dynomite/blob/dev/images/dynomite-logo.png"><img src="/Netflix/dynomite/raw/dev/images/dynomite-logo.png" alt="炸药标志" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">炸药</font></font></h1><a id="user-content-dynomite" class="anchor" aria-label="永久链接：炸药" href="#dynomite"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="http://travis-ci.com/Netflix/dynomite" rel="nofollow"><img src="https://camo.githubusercontent.com/4c650ed7786e54cf4e9c9ff55e905a7c9013a108e17357d7410b478a3040a1cc/68747470733a2f2f7472617669732d63692e636f6d2f4e6574666c69782f64796e6f6d6974652e737667" alt="构建状态" data-canonical-src="https://travis-ci.com/Netflix/dynomite.svg" style="max-width: 100%;"></a>
+<a href="https://gitter.im/Netflix/dynomite?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" rel="nofollow"><img src="https://camo.githubusercontent.com/c6907062dbca2c0d7d585ff3e3aebb40c5a6ea55848a9f06090f0312f3c1cfce/68747470733a2f2f6261646765732e6769747465722e696d2f4e6574666c69782f64796e6f6d6974652e737667" alt="开发者聊天：https://gitter.im/Netflix/dynomite" data-canonical-src="https://badges.gitter.im/Netflix/dynomite.svg" style="max-width: 100%;"></a>
+<a href="https://github.com/Netflix/dynomite/blob/dev/LICENSE"><img src="https://camo.githubusercontent.com/94efde57ce7085c84fa9421f5b03a39973aad48d4adaad7653714198335f3992/687474703a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d41706163686525323056322d626c75652e737667" alt="Apache V2 许可证" data-canonical-src="http://img.shields.io/badge/license-Apache%20V2-blue.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dynomite</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">受到</font></font><a href="http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dynamo 白皮书的</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">启发，是一个适用于不同存储引擎和协议的薄型分布式 Dynamo 层。目前这些包括</font></font><a href="http://redis.io" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Redis</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="http://www.memcached.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Memcached</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。 Dynomite 支持多数据中心复制，专为高可用性而设计。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dynomite 的最终目标是能够在本身不提供该功能的存储引擎上实现高可用性和跨数据中心复制。该实施高效、不复杂（移动部件很少）并且性能很高。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">工作流程</font></font></h2><a id="user-content-workflow" class="anchor" aria-label="永久链接：工作流程" href="#workflow"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">每个编号为 v0.5.9、v0.5.8 等的分支都是稳定且安全的，可以在生产中使用，除非标记为预发布。 dev</font><font style="vertical-align: inherit;">分支是开发不稳定分支</font></font><a href="https://github.com/Netflix/dynomite/tree/dev"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">随着时间的推移，主分支已经落后并且不再被维护。我们最终将删除它，并且可能会也可能不会重新创建它。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如有问题或贡献，请考虑阅读</font></font><a href="/Netflix/dynomite/blob/dev/CONTRIBUTING.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CONTRIBUTING.md</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">建造</font></font></h2><a id="user-content-build" class="anchor" aria-label="永久链接：构建" href="#build"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要从源代码构建 Dynomite，并</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">启用调试日志</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">禁用断言</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>$ git clone git@github.com:Netflix/dynomite.git
+$ cd dynomite
+$ autoreconf -fvi
+$ ./configure --enable-debug=yes
+$ make
+$ src/dynomite -h
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="$ git clone git@github.com:Netflix/dynomite.git
+$ cd dynomite
+$ autoreconf -fvi
+$ ./configure --enable-debug=yes
+$ make
+$ src/dynomite -h" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在调试模式</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下构建 Dynomite </font><font style="vertical-align: inherit;">：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>$ git clone git@github.com:Netflix/dynomite.git
+$ cd dynomite
+$ autoreconf -fvi
+$ CFLAGS="-ggdb3 -O0" ./configure --enable-debug=full
+$ make
+$ sudo make install
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="$ git clone git@github.com:Netflix/dynomite.git
+$ cd dynomite
+$ autoreconf -fvi
+$ CFLAGS=&quot;-ggdb3 -O0&quot; ./configure --enable-debug=full
+$ make
+$ sudo make install" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">帮助</font></font></h2><a id="user-content-help" class="anchor" aria-label="永久链接：帮助" href="#help"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>Usage: dynomite [-?hVdDt] [-v verbosity level] [-o output file]
+                  [-c conf file] [-p pid file] 
 
-![dynomite logo](images/dynomite-logo.png)
+Options:
+  -h, --help              : this help
+  -V, --version           : show version and exit
+  -t, --test-conf         : test configuration for syntax errors and exit
+  -g, --gossip            : enable gossip (default: disabled)
+  -d, --daemonize         : run as a daemon
+  -D, --describe-stats    : print stats description and exit
+  -v, --verbosity=N       : set logging level (default: 5, min: 0, max: 11)
+  -o, --output=S          : set logging file (default: stderr)
+  -c, --conf-file=S       : set configuration file (default: conf/dynomite.yml)
+  -p, --pid-file=S        : set pid file (default: off)
+  -x, --admin-operation=N : set size of admin operation (default: 0)
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="Usage: dynomite [-?hVdDt] [-v verbosity level] [-o output file]
+                  [-c conf file] [-p pid file] 
 
-
-# Dynomite 
-
-[![Build Status](https://travis-ci.com/Netflix/dynomite.svg)](http://travis-ci.com/Netflix/dynomite)
-[![Dev chat at https://gitter.im/Netflix/dynomite](https://badges.gitter.im/Netflix/dynomite.svg)](https://gitter.im/Netflix/dynomite?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Apache V2 License](http://img.shields.io/badge/license-Apache%20V2-blue.svg)](https://github.com/Netflix/dynomite/blob/dev/LICENSE)
-
-**Dynomite**, inspired by [Dynamo whitepaper](http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf), is a thin, distributed dynamo layer for different storage engines and protocols. Currently these include [Redis](http://redis.io) and [Memcached](http://www.memcached.org/).  Dynomite supports multi-datacenter replication and is designed for high availability.
-
-The ultimate goal with Dynomite is to be able to implement high availability and cross-datacenter replication on storage engines that do not inherently provide that functionality. The implementation is efficient, not complex (few moving parts), and highly performant.
-
-## Workflow
-
-Every branch numbered like v0.5.9, v0.5.8 etc is stable and safe to use in production unless marked as pre-release. The [dev]( https://github.com/Netflix/dynomite/tree/dev ) branch is the development unstable branch. Over time master branch has fallen behind and is not maintained. We will eventually delete it and may or may not recreate it.
-
-For questions or contributions, please consider reading [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Build
-
-To build Dynomite from source with _debug logs enabled_ and _assertions disabled_:
-
-    $ git clone git@github.com:Netflix/dynomite.git
-    $ cd dynomite
-    $ autoreconf -fvi
-    $ ./configure --enable-debug=yes
-    $ make
-    $ src/dynomite -h
-
-To build Dynomite in _debug mode_:
-
-    $ git clone git@github.com:Netflix/dynomite.git
-    $ cd dynomite
-    $ autoreconf -fvi
-    $ CFLAGS="-ggdb3 -O0" ./configure --enable-debug=full
-    $ make
-    $ sudo make install
-
-## Help
-
-    Usage: dynomite [-?hVdDt] [-v verbosity level] [-o output file]
-                      [-c conf file] [-p pid file] 
-
-    Options:
-      -h, --help              : this help
-      -V, --version           : show version and exit
-      -t, --test-conf         : test configuration for syntax errors and exit
-      -g, --gossip            : enable gossip (default: disabled)
-      -d, --daemonize         : run as a daemon
-      -D, --describe-stats    : print stats description and exit
-      -v, --verbosity=N       : set logging level (default: 5, min: 0, max: 11)
-      -o, --output=S          : set logging file (default: stderr)
-      -c, --conf-file=S       : set configuration file (default: conf/dynomite.yml)
-      -p, --pid-file=S        : set pid file (default: off)
-      -x, --admin-operation=N : set size of admin operation (default: 0)
-
-
-## Configuration
-
-Dynomite can be configured through a YAML 1.1 (YAML 1.1 is not JSON compatible) file specified by the -c or --conf-file command-line argument on process start. The configuration files parses and understands the following keys:
-
-+ **env**: Specify environment of a node.  Currently supports aws and network (for physical datacenter).
-+ **datacenter**: The name of the datacenter.  Please refer to [architecture document](https://github.com/Netflix/dynomite/wiki/Architecture).
-+ **rack**: The name of the rack.  Please refer to [architecture document](https://github.com/Netflix/dynomite/wiki/Architecture).
-+ **dyn_listen**: The port that dynomite nodes use to inter-communicate and gossip.
-+ **enable_gossip**: enable gossip instead of static tokens (default: false). Gossip is experimental.
-+ **gos_interval**: The sleeping time in milliseconds at the end of a gossip round.
-+ **tokens**: The token(s) owned by a node.  Currently, we don't support vnode yet so this only works with one token for the time being.
-+ **dyn_seed_provider**: A seed provider implementation to provide a list of seed nodes.
-+ **dyn_seeds**: A list of seed nodes in the format: address:port:rack:dc:tokens (note that vnode is not supported yet)
-+ **listen**: The listening address and port (name:port or ip:port) for this server pool.
-+ **timeout**: The timeout value in msec that we wait for to establish a connection to the server or receive a response from a server. By default, we wait indefinitely.
-+ **preconnect**: A boolean value that controls if dynomite should preconnect to all the servers in this pool on process start. Defaults to false.
-+ **data_store**: An integer value that controls if a server pool speaks redis (0) or memcached (1) or other protocol. Defaults to redis (0).
-+ **auto_eject_hosts**: A boolean value that controls if server should be ejected temporarily when it fails consecutively server_failure_limit times. See [liveness recommendations](notes/recommendation.md#liveness) for information. Defaults to false.
-+ **server_retry_timeout**: The timeout value in msec to wait for before retrying on a temporarily ejected server, when auto_eject_host is set to true. Defaults to 30000 msec.
-+ **server_failure_limit**: The number of consecutive failures on a server that would lead to it being temporarily ejected when auto_eject_host is set to true. Defaults to 2.
-+ **servers**: A list of local server address, port and weight (name:port:weight or ip:port:weight) for this server pool. Currently, there is just one.
-+ **secure_server_option**: Encrypted communication. Must be one of 'none', 'rack', 'datacenter', or 'all'. ```datacenter``` means all communication between datacenters is encrypted but within a datacenter it is not. ```rack``` means all communication between racks and regions is encrypted however communication between nodes within the same rack is not encrypted. ```all``` means all communication between all nodes is encrypted. And ```none``` means none of the communication is encrypted. 
-+ **stats_listen**: The address and port number for the REST endpoint and for accessing statistics.
-+ **stats_interval**: set stats aggregation interval in msec (default: 30000 msec).
-+ **mbuf_size**: size of mbuf chunk in bytes (default: 16384 bytes).
-+ **max_msgs**: max number of messages to allocate (default: 200000).
-+ **datastore_connections**: Maximum number of connections to the local datastore.
-+ **local_peer_connections**: Maximum number of connections to a local DC peer.
-+ **remote_peer_connections**: Maximum number of connections to a remote DC peer.
-+ **dyn_port**: Port used by Dynomite servers to talk to each other.
-
-For example, the configuration file in [conf/dynomite.yml](conf/dynomite.yml)
-
-Finally, to make writing syntactically correct configuration files easier, dynomite provides a command-line argument -t or --test-conf that can be used to test the YAML configuration file for any syntax error.
-
-
-## License
-
-Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
+Options:
+  -h, --help              : this help
+  -V, --version           : show version and exit
+  -t, --test-conf         : test configuration for syntax errors and exit
+  -g, --gossip            : enable gossip (default: disabled)
+  -d, --daemonize         : run as a daemon
+  -D, --describe-stats    : print stats description and exit
+  -v, --verbosity=N       : set logging level (default: 5, min: 0, max: 11)
+  -o, --output=S          : set logging file (default: stderr)
+  -c, --conf-file=S       : set configuration file (default: conf/dynomite.yml)
+  -p, --pid-file=S        : set pid file (default: off)
+  -x, --admin-operation=N : set size of admin operation (default: 0)" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置</font></font></h2><a id="user-content-configuration" class="anchor" aria-label="永久链接：配置" href="#configuration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dynomite 可以通过进程启动时 -c 或 --conf-file 命令行参数指定的 YAML 1.1（YAML 1.1 与 JSON 不兼容）文件进行配置。配置文件解析并理解以下键：</font></font></p>
+<ul dir="auto">
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">env</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：指定节点的环境。目前支持 aws 和网络（针对物理数据中心）。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数据中心</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：数据中心的名称。请参考</font></font><a href="https://github.com/Netflix/dynomite/wiki/Architecture"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">架构文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">机架</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：机架的名称。请参考</font></font><a href="https://github.com/Netflix/dynomite/wiki/Architecture"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">架构文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">dyn_listen</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：dynomite 节点用于相互通信和八卦的端口。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">enable_gossip</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：启用 gossip 而不是静态令牌（默认值： false）。八卦是实验性的。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">gos_interval</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：八卦回合结束时的睡眠时间（以毫秒为单位）。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tokens</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：节点拥有的令牌。目前，我们还不支持 vnode，因此暂时仅适用于一种令牌。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">dyn_seed_provider</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：种子提供程序实现，用于提供种子节点列表。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">dyn_seeds</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：种子节点列表，格式为：address:port:rack:dc:tokens（请注意，尚不支持 vnode）</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Listen</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：此服务器池的侦听地址和端口（名称：端口或 IP：端口）。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">timeout</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：我们等待建立与服务器的连接或接收来自服务器的响应的超时值（以毫秒为单位）。默认情况下，我们无限期地等待。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">preconnect</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：一个布尔值，控制 dynomite 是否应在进程启动时预连接到该池中的所有服务器。默认为 false。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">data_store</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：一个整数值，控制服务器池是否使用 redis (0) 或 memcached (1) 或其他协议。默认为 redis (0)。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">auto_eject_hosts</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：一个布尔值，控制服务器连续失败 server_failure_limit 次时是否应暂时弹出。有关信息，</font><font style="vertical-align: inherit;">请参阅</font></font><a href="/Netflix/dynomite/blob/dev/notes/recommendation.md#liveness"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">活性建议</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。默认为 false。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">server_retry_timeout</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：当 auto_eject_host 设置为 true 时，在临时弹出的服务器上重试之前等待的超时值（以毫秒为单位）。默认为 30000 毫秒。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">server_failure_limit</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：当 auto_eject_host 设置为 true 时，服务器上导致服务器暂时弹出的连续失败次数。默认为 2。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">服务器</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：此服务器池的本地服务器地址、端口和权重（名称：端口：权重或 ip：端口：权重）的列表。目前，只有一个。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">secure_server_option</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：加密通信。必须是“无”、“机架”、“数据中心”或“全部”之一。</font></font><code>datacenter</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">意味着数据中心之间的所有通信均已加密，但数据中心内的所有通信均未加密。</font></font><code>rack</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">意味着机架和区域之间的所有通信都已加密，但同一机架内的节点之间的通信未加密。</font></font><code>all</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">意味着所有节点之间的所有通信都是加密的。这</font></font><code>none</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">意味着所有通信均未加密。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">stats_listen</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：REST 端点以及用于访问统计信息的地址和端口号。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">stats_interval</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：设置统计聚合间隔（以毫秒为单位）（默认值：30000 毫秒）。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mbuf_size</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：mbuf 块的大小（以字节为单位）（默认值：16384 字节）。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">max_msgs</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：要分配的最大消息数（默认值：200000）。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">datastore_connections</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：本地数据存储的最大连接数。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">local_peer_connections</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：与本地 DC 对等点的最大连接数。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Remote_peer_connections</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：与远程 DC 对等点的最大连接数。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">dyn_port</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：Dynomite 服务器用于相互通信的端口。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">例如</font></font><a href="/Netflix/dynomite/blob/dev/conf/dynomite.yml"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">conf/dynomite.yml中的配置文件</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最后，为了更轻松地编写语法正确的配置文件，dynomite 提供了命令行参数 -t 或 --test-conf，可用于测试 YAML 配置文件是否存在任何语法错误。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h2><a id="user-content-license" class="anchor" aria-label="永久链接：许可证" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">根据 Apache 许可证 2.0 版获得许可：</font></font><a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://www.apache.org/licenses/LICENSE-2.0</font></font></a></p>
+</article></div>
